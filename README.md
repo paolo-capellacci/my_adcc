@@ -31,12 +31,12 @@ A seguito è necessario implementare le seguenti funzioni al fine che soddisfino
 
 ## Gestione delle Tuple
 In questo caso il progetto deve provvedere:
-### - new(name)
+- ### new(name)
 crea un nuovo TS con un nome
-### - out(TS, Tuple)
+- ### out(TS, Tuple)
 permette di unseirire una tupla nel TS indicato
-### - rd(TS, Pattern)
+- ### rd(TS, Pattern)
 permette di cercare ne TS se una tupla esiste
-### - in(TS, Pattern)
+- ### in(TS, Pattern)
 
 
