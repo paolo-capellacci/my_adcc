@@ -18,4 +18,6 @@ L'implementazione dell'algoritmo si deve soddisfare le seguenti specifiche.
 - Gestire il sincronismo telle tuple tra i nodi
 - Modalita di ricerca con Time Out
 
+![Situazione iniziale TS](./files/gestione_memoria_01.png)
+
 
