@@ -32,7 +32,7 @@ A seguito è necessario implementare le seguenti funzioni al fine che soddisfino
 ## Gestione delle Tuple
 In questo caso il progetto deve provvedere:
 - ### new(name)
-crea un nuovo TS con un nome
+\setlength{\parindent}{2em} crea un nuovo TS con un nome }
 - ### out(TS, Tuple)
 permette di unseirire una tupla nel TS indicato
 - ### rd(TS, Pattern)
