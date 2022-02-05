@@ -96,7 +96,7 @@ La struttura dell'ets `lNode` è la seguente ed ha le seguente dicliarazione, `e
 }).
 ```
 
-!addNode](addNode.png)
+!addNode](./img/addNode.png)
 
 Per rincronizzare i nodi raggiungibili o meno che nell'ets `lNode` hanno una corrispondenza sono necessarie le seguenti funzioni
 
