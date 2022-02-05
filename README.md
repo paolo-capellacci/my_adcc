@@ -82,10 +82,10 @@ match([HP | TP], [HL | TL]) ->
 per rincronizzare i nodi raggiungibilo o meno ma che nell'ets lNode hanno una corrispondenza sono necessarie le seguenti funzioni
 - `<node:nodes(TS)>` prende il nome di un TS e restituisce la lista di nodi che hanno corrispondenza nell'lNode, usando ets:select(lNode, `[{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` 
 - (es: listNode, node1@localhost, ts1)
-- `<node:listNodes()>` non pende nessun argomento e restutuisce tutti i nodi che sono presenti nell'ets lNode, usando ets:select(lNode,`[{{'_','$2','_'},[],['$2']}])`
-- `<esame:getListTuples(Node)>` prende come argomento un nodo e restituisce la lista delle tuple per quel nodo, usando ets:select(lNode, `[{{'$1','$2','$3'},[{'=:=','$2',Node}],['$3']}])`
+- `node:listNodes()` non pende nessun argomento e restutuisce tutti i nodi che sono presenti nell'ets lNode, usando ets:select(lNode,`[{{'_','$2','_'},[],['$2']}])`
+- `esame:getListTuples(Node)` prende come argomento un nodo e restituisce la lista delle tuple per quel nodo, usando ets:select(lNode, `[{{'$1','$2','$3'},[{'=:=','$2',Node}],['$3']}])`
 
-Per far si che tutti i nodi abbiano un aggiornamento delle tuple a cui hanno visibilità si è aggiunto la lunzione `node:ceckAll()` che utilizzando la funzione `<node:listNode()`>, ha a disposizione tutti i nodi che hanno motivo di essare contattati, e con la funzione `esame:getListTuple(Node)` torna la lista dei TS che serve inviare o aggiornare.
+Per far si che tutti i nodi abbiano un aggiornamento delle tuple a cui hanno visibilità si è aggiunto la lunzione `node:ceckAll()` che utilizzando la funzione `node:listNode()`, ha a disposizione tutti i nodi che hanno motivo di essare contattati, e con la funzione `esame:getListTuple(Node)` torna la lista dei TS che serve inviare o aggiornare.
 In seguito la funzione `node:updateTsNode(TS, Node)` aggiorna il nodo con il solo TS che vengono passati come argomento, utile da richiamare all'aggiunta di un nuovo nodo e/o un nuovo TS,
 
 Nel caso di un novo TS non è necessario contattare tutti i nodi e riaggiornare tutti i TS, quindi ho provveduto a aggiungere la funzione `node:ceckAllNode(TS)` che passando il `TS` come argomneto contatta i soli nodi che hanno visibilità per quel `TS` e li aggiorna.
