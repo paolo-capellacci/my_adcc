@@ -143,3 +143,5 @@ esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche
 
 ```
 ![alt text](./img/ts.png width="200")
+
+<img src="https://github.com/paolo-capellacci/progetto_309131/blob/main/assets/images/redame/setting.png" width="200">
