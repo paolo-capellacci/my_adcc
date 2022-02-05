@@ -60,7 +60,7 @@ In seguito la funzione `<node:updateTsNode(TS, Node)>` aggiorna il nodo con il s
 
 Nel caso di un novo TS non è necessario contattare tutti i nodi e riaggiornare tutti i TS, quindi ho provveduto a aggiungere la funzione `<node:ceckAllTS(TS)>` che passando il `<TS>` come argomneto contatta i soli nodi che hanno visibilità per quel `<TS>` e li aggiorna.
 
-Nel caso che si aggiunge un novo nodo è stata aggiunta la funzione `<node:ceckAllNode(Node)>` che prendendo `<Node>` come argomento aggiorna il solo nodo con i `<TS>` a cui ha visibilità.
+
 
 
 
