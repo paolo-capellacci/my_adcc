@@ -95,7 +95,7 @@ La struttura dell'ets `lNode` è la seguente ed ha le seguente dicliarazione, `e
     ts
 }).
 ```
-[!alt text](https://github.com/paolo-capellacci/my_adcc/blob/main/img/addNode.png)
+[!alt text](./img/addNode.png)
 
 ![alt text](https://github.com/paolo-capellacci/progetto_309131/blob/main/assets/images/redame/app_speed_tools.png)
 [!addNode](./img/addNode.png)
