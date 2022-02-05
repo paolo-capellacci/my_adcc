@@ -48,6 +48,32 @@ permette di cercare ne TS se una tupla esiste
 Il pattern Macching deve presedere il carattere jolly identificato con l'atomo any
 Example: `<match([any,3,”pippo”], [1,3,”pippo”]) = true>`
 
+
+```
+match([], []) ->
+    true;
+
+% controlla la lunghezza dell'array  
+match(_A, []) ->
+    false;
+
+match([], _B) ->
+    false;
+
+match([HP | TP], [HL | TL]) ->
+
+    case HP of
+        any -> 
+            match(TP, TL);
+        HL ->
+            match(TP, TL);
+        _ ->
+            false
+    end
+.
+```
+
+
 ## Gestire il sincronismo telle tuple tra i nodi
 per rincronizzare i nodi raggiungibilo o meno ma che nell'ets lNode hanno una corrispondenza sono necessarie le seguenti funzioni
 - `<node:nodes(TS)>` prende il nome di un TS e restituisce la lista di nodi che hanno corrispondenza nell'lNode, usando ets:select(lNode, `<[{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])>` 
