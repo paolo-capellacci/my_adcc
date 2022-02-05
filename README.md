@@ -157,10 +157,11 @@ node:addNode(ts1, node3@localhost).
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/node.png" width="800">
 
 
-
+#### lookup(TS)
 con la funzione `esame:look_up(ts1)` si ha l'output nel terminale dell'elenco delle tuple nel `TS` `ts1`.
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/look_up.png" width="800">
 
+#### rd(TS, Pattern)
 esame:rd(ts1, {5}).
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_1.png" width="800">
 
@@ -169,4 +170,11 @@ esame:rd(ts1, {93, any, any}).
 
 esame:rd(ts1, {93, any, 54}).
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_3.png" width="800">
+
+#### in(TS, Pattern)
+esame_in(ts1, {16, any, any}).
+
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_1.png" width="800">
+
+
 
