@@ -28,6 +28,7 @@ A seguito è necessario implementare le seguenti funzioni al fine che soddisfino
 - addNode(TS, Node)
 - removeNode(TS node)
 - listNode(TS)
+- per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di singronizzazione (Gestire il sincronismo telle tuple tra i nodi)
 
 ## Gestione delle Tuple
 In questo caso il progetto deve provvedere:
@@ -42,4 +43,13 @@ permette di unseirire una tupla nel TS indicato
 permette di cercare ne TS se una tupla esiste
 - ### in(TS, Pattern)
 
+## Pattern Macching
+Il pattern Macching deve presedere il carattere jolly identificato con l'atomo any
+Example: match([any,3,”pippo”], [1,3,”pippo”]) = true
 
+## Gestire il sincronismo telle tuple tra i nodi
+per rincronizzare i nodi raggiungibilo o meno ma che nell'ets lNode hanno una corrispondenza sono necessarie le seguenti funzioni
+- nodes(TS) prende il nome di un TS e restituisce la lista di nodi che hanno corrispondenza nell'lNode, usando ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])
+- (es: listNode, node1@localhost, ts1)
+- listNodes() non pende nessun argomento e restutuisce tutti i nodi che sono presenti nell'ets lNode, usando ets:select(lNode,[{{'_','$2','_'},[],['$2']}])
+- listTuples(Node) prende come argomento un nodo e restituisce la lista delle tuple per quel nodo, usando ets:select(lNode, [{{'$1','$2','$3'},[{'=:=','$2',Node}],['$3']}])
