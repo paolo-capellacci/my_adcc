@@ -146,6 +146,8 @@ esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche
 ```
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
+
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
 
 aggiungendo le visibilità dei TS ai nodi
@@ -159,8 +161,8 @@ node:addNode(ts1, node3@localhost).
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/node.png" width="800">
 #### new(TS)
+
 con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
 
 con la funzione `esame:populate(ts1)` si popola il `TS` con dati interi in parte random.
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
