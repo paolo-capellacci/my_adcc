@@ -133,6 +133,7 @@ c(node).
 db:initdb().
 
 ```
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/init.png" width="800">
 
 a seguito si possono inserire i vari `TS` e popolarli con una funzione dedicata
 
@@ -144,7 +145,6 @@ esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche
 
 ```
 
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/init.png" width="800">
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
 
 aggiungendo le visibilità dei TS ai nodi
