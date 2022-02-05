@@ -149,7 +149,8 @@ esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche
 
 #### new(TS)
 
-con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
+Con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
+Quando si aggiunge un nuovo TS, in automatio si aggiunge una corrispondenza anche nell'ets lNode con la funzione addNode(TS, Node).
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
 
 #### lookup(TS)
@@ -159,12 +160,14 @@ con la funzione `esame:look_up(ts1)` si ha l'output nel terminale dell'elenco de
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
 
 #### addNode(TS, Node)
-aggiungendo le visibilità dei TS ai nodi
+aggiungendo le visibilità dei `TS` ai nodi
+Quando si aggiungono le visibilita di un `TS` ad altri nodi si invia anche il proprio `lNode` al fine che anche gli altri nodi che vengono a far parte della visibilità contengano una copia con le politiche delle visibiltà.
+Ad ogni modo la copia del `TS` lNode viene comunque scambiata anche con altre azioni di sincronizzazione.
+Un nodo può dare visibilità ai soli `TS` che possiede.
+
 ```
-node:addNode(ts1, node1@localhost).
-node:addNode(ts1, node1@localhost).
 node:addNode(ts1, node2@localhost).
-node:addNode(ts1, node2@localhost).
+node:addNode(ts2, node2@localhost).
 node:addNode(ts1, node3@localhost).
 ```
 
