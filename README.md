@@ -18,6 +18,8 @@ L'implementazione dell'algoritmo si deve soddisfare le seguenti specifiche.
 - Gestire il sincronismo telle tuple tra i nodi
 - Modalita di ricerca con Time Out
 - Pattern Macching
+- Test
+
 
 ## Premessa
 Erlang permette di avviare un processo su una macchina in rete e tale processo si identifica come nodo e tale nodo può comunicare con altri nodi dello stesso computer, ma anche con nodi su altri computer e / o reti diverse. Quindi una volta definito un nome al processo, Erlang provvederà a identificarlo all'interno del computer ed in rete.  
@@ -49,6 +51,7 @@ Se ha esito positivo torna una lista delle tuple trovate, questa funzione non fa
 - ### in(TS, Pattern)
 La funzione `esame:in(TS, Pattern)` prende il nome del `TS` ed il `Pattern` confronta se esiste una corrispondenza come fa `esame:rd(TS, PAttern)` ma nel caso che trova la corrispondenza invoca la funzione `ets:match_delete(TS, Value)` per provverere alla eliminazione della tupla, anche in questo caso viene invocata la funzione per suncronizzare i nodi che hanno quel `TS` per provvedere all'eliminazione nei `TS` degli altri nodi.
 
+## Modalita di ricerca con Time Out
 - ### rd(TS, Pattern, TimeOut) 
 Questa funzione `esame:rd(TS, Pattern, TimeOut)` è simile alla `rd/2` tranne per il fatto che gli viene passato un valore aggiuntivo come argomento che continua a provare per un tempo `TimeOut` il pattern macching.
 
@@ -117,3 +120,26 @@ Nel caso di un novo `TS` non è necessario contattare tutti i nodi e riaggiornar
 
 In caso di cancellazione di una tupla su un `TS` è stata aggiunta la funzione `ceckDeleteDataTS(TS, Tupla)` che prendendo il `TS` e la `Tupla` controlla chi ha visibilità per quel `TS` ed invoca la funzione `memactor ! {out, TS, Dump, self()},` per cancellare la tupla in quel `TS`, avendo l'informazione della visibilità tale funzione viene rilanciata anche nel caso il `TS` è presente su più nodi.
 
+
+## Test
+Al fine di eseguire i test è necessari condiderare che è necessario avviare erlang definendo il nome del nodo con `erl -snode node1@localhost`.
+Una volta avviati i nodi necessari al test è necessario avviare la compilazione dei file erlang ed avviare il processo.
+
+```
+c(esame).
+c(db).
+c(node).
+db:initdb().
+
+```
+
+a seguito si possono inserire i vari `TS` e popolarli con una funzione dedicata
+
+```
+esame:new(ts1)          % aggiunge un Tuple Space con nome ts1
+esame:new(ts2)          % aggiunge un Tuple Space con nome ts2
+esame:populate(ts1)     % popola il Tuple Space ts1 con tuple numeriche 
+esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche 
+
+```
+![alt text](./img/ts.png)
