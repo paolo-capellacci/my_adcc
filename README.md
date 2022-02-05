@@ -147,9 +147,18 @@ esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
 
+#### new(TS)
+
+con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
+
+#### lookup(TS)
+con la funzione `esame:look_up(ts1)` si ha l'output nel terminale dell'elenco delle tuple nel `TS` `ts1`.
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/look_up.png" width="800">
+
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
 
+#### addNode(TS, Node)
 aggiungendo le visibilità dei TS ai nodi
 ```
 node:addNode(ts1, node1@localhost).
@@ -160,16 +169,11 @@ node:addNode(ts1, node3@localhost).
 ```
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/node.png" width="800">
-#### new(TS)
 
-con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
 
 con la funzione `esame:populate(ts1)` si popola il `TS` con dati interi in parte random.
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
 
-#### lookup(TS)
-con la funzione `esame:look_up(ts1)` si ha l'output nel terminale dell'elenco delle tuple nel `TS` `ts1`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/look_up.png" width="800">
 
 #### rd(TS, Pattern)
 esame:rd(ts1, {5}).
