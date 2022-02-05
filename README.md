@@ -146,6 +146,7 @@ esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche
 ```
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
 
 aggiungendo le visibilità dei TS ai nodi
 ```
