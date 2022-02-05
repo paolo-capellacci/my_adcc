@@ -6,10 +6,10 @@
 di Paolo Capellacci e Paride Dominici
 
 
-## Descrizione
+## Specifice del progetto
 Questo progetto consiste nell'implementare uno spazio di tuple in linguaggio Erlang
 
-L'implementazione dell'algoritmo si deve soddisfare le seguenti specifiche.
+L'implementazione dell'algoritmo deve soddisfare le seguenti specifiche.
 - Gestione dei nodi
 - Gestione delle Tuple
 - Gestire il sincronismo telle tuple tra i nodi
@@ -19,7 +19,12 @@ L'implementazione dell'algoritmo si deve soddisfare le seguenti specifiche.
 
 
 ## Premessa
-Erlang permette di avviare un processo su una macchina in rete e tale processo si identifica come nodo e tale nodo può comunicare con altri nodi dello stesso computer, ma anche con nodi su altri computer e / o reti diverse. Quindi una volta definito un nome al processo, Erlang provvederà a identificarlo all'interno del computer ed in rete.  
+Erlang permette di avviare un processo su una macchina in rete e tale processo si identifica come nodo e tale nodo può comunicare con altri nodi dello stesso computer, ma anche con nodi su altri computer e / o reti diverse. Quindi una volta definito un nome al processo, Erlang provvederà a identificarlo all'interno del computer e della rete.  
+
+Per implementare questo progetto si è fatto uso di un file che contiene le funzione per l'interfaccia utente, un file che contiene le funzioni per l'elaboorazione delle tuple inserite in ets. Un altro ets con nome lNode, è stato utilizzato per tenere traccia delle visibilita delle tuple tra i nodi. 
+I test sono stati fatti su un solo compueter, quindi i nodi sono tutti locali nella stessa rete, ma è stato solo un fatto di comodità dato che per Erlang non ci sarebbe stata nessuna differenza.
+
+Iniziamente il progetto è stato iniziato in coppia con Paride Dominici, poi per motivi di difficoltà nel trovare il tempo di comunicare per impegni di lavoro, studio e famiglia, lo sviluppo e seguito un maniera distaccata, anche se la struttura di base ed il Pattern Macching è opera di Paride poi alcuni approcci hanno seguito diverse preferenze di implementazione, quindi si è preferito presentarli separati, ma soprattutto per mettermi alla prova e per non infrangere l'ultima regola "The golden rule Have fun!".
 
 ## Gestione dei nodi.
 Il progetto prevedere l'uso della console da cui vi avvia un processo dandogli un nome, ogni istanza sarà un nodo con un nome univoco del tipo `nome_nodo@nome_computer`.
