@@ -1,12 +1,9 @@
 # ADCC - Progetto A.A. 2021/2022 
 ## Implementazione di uno spazio di tuple in Erlang
 
-Progetto di Applicazioni Distribuite e Cloud Computing 
+### Progetto di Applicazioni Distribuite e Cloud Computing 
 
-## Applicazioni distribuite e Cloud Computing
-
-Autore 
-## Paolo Capellacci
+di Paolo Capellacci e Paride Dominici
 
 
 ## Descrizione
