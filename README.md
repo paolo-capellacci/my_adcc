@@ -51,5 +51,5 @@ Example: match([any,3,”pippo”], [1,3,”pippo”]) = true
 per rincronizzare i nodi raggiungibilo o meno ma che nell'ets lNode hanno una corrispondenza sono necessarie le seguenti funzioni
 - nodes(TS) prende il nome di un TS e restituisce la lista di nodi che hanno corrispondenza nell'lNode, usando ets:select(lNode, `<[{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])>` 
 - (es: listNode, node1@localhost, ts1)
-- listNodes() non pende nessun argomento e restutuisce tutti i nodi che sono presenti nell'ets lNode, usando ets:select(lNode,[{{'_','$2','_'},[],['$2']}])
-- listTuples(Node) prende come argomento un nodo e restituisce la lista delle tuple per quel nodo, usando ets:select(lNode, [{{'$1','$2','$3'},[{'=:=','$2',Node}],['$3']}])
+- listNodes() non pende nessun argomento e restutuisce tutti i nodi che sono presenti nell'ets lNode, usando ets:select(lNode,`<[{{'_','$2','_'},[],['$2']}])>`
+- listTuples(Node) prende come argomento un nodo e restituisce la lista delle tuple per quel nodo, usando ets:select(lNode, `<[{{'$1','$2','$3'},[{'=:=','$2',Node}],['$3']}])>`
