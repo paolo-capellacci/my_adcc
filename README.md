@@ -142,6 +142,5 @@ esame:populate(ts1)     % popola il Tuple Space ts1 con tuple numeriche
 esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche 
 
 ```
-![alt text](./img/ts.png width="200")
 
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="200">
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
