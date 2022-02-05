@@ -58,7 +58,7 @@ per rincronizzare i nodi raggiungibilo o meno ma che nell'ets lNode hanno una co
 Per far si che tutti i nodi abbiano un aggiornamento delle tuple a cui hanno visibilità si è aggiunto la lunzione `<node:ceckAll()>` che utilizzando la funzione `<node:listNode()`>, ha a disposizione tutti i nodi che hanno motivo di essare contattati, e con la funzione `<esame:getListTuple(Node)>` torna la lista dei TS che serve inviare o aggiornare.
 In seguito la funzione `<node:updateTsNode(TS, Node)>` aggiorna il nodo con il solo TS che vengono passati come argomento, utile da richiamare all'aggiunta di un nuovo nodo e/o un nuovo TS,
 
-Nel caso di un novo TS non è necessario contattare tutti i nodi e riaggiornare tutti i TS, quindi ho provveduto a aggiungere la funzione `<node:ceckAllTS(TS)>` che passando il `<TS>` come argomneto contatta i soli nodi che hanno visibilità per quel `<TS>` e li aggiorna.
+Nel caso di un novo TS non è necessario contattare tutti i nodi e riaggiornare tutti i TS, quindi ho provveduto a aggiungere la funzione `<node:ceckAllNode(TS)>` che passando il `<TS>` come argomneto contatta i soli nodi che hanno visibilità per quel `<TS>` e li aggiorna.
 
 
 
