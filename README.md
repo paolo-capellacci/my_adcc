@@ -29,7 +29,7 @@ A seguito è necessario implementare le seguenti funzioni al fine che soddisfino
 - removeNode(TS node)
 - listNode(TS)
 - per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di singronizzazione 
-### `Gestire il sincronismo telle tuple tra i nodi)`
+##### `Gestire il sincronismo telle tuple tra i nodi)`
 
 ## Gestione delle Tuple
 In questo caso il progetto deve provvedere:
