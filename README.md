@@ -47,7 +47,11 @@ permette di cercare ne TS se una tupla esiste
 ## Pattern Macching
 Il pattern Macching deve presedere il carattere jolly identificato con l'atomo any
 Example: `<match([any,3,”pippo”], [1,3,”pippo”]) = true>`
-
+```
+PatternList = tuple_to_list(Pattern),
+ValueList = tuple_to_list(Value),
+```  
+qundi si passano i due array alla funzione `<match(PatternList, ValueList)>`
 
 ```
 match([], []) ->
