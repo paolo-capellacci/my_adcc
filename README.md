@@ -144,3 +144,18 @@ esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche
 ```
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
+
+aggiungendo le visibilità dei TS ai nodi
+```
+node:addNode(ts1, node1@localhost).
+node:addNode(ts1, node1@localhost).
+node:addNode(ts1, node2@localhost).
+node:addNode(ts1, node2@localhost).
+node:addNode(ts1, node3@localhost).
+```
+
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/node.png" width="800">
+
+
+
+con la funzione `esame:look_up(ts1)` si ha l'output nel terminale dell'elenco delle tuple nel `TS` `ts1`.
