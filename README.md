@@ -23,7 +23,7 @@ L'implementazione dell'algoritmo si deve soddisfare le seguenti specifiche.
 Erlang permette di avviare un processo su una macchina in rete e tale processo si identifica come nodo e tale nodo può comunicare con altri nodi dello stesso computer, ma anche con nodi su altri computer e / o reti diverse. Quindi una volta definito un nome al processo, Erlang provvederà a identificarlo all0interno del computer ed in rete.  
 
 ## Gestione dei nodi.
-Il progetto prevedere l'uso della console da cui vi avvia un processo dandogli un nome, ogni istanza sarà un nodo con un nome univoco del tipo nome_nodo@nome_computer.
+Il progetto prevedere l'uso della console da cui vi avvia un processo dandogli un nome, ogni istanza sarà un nodo con un nome univoco del tipo `<nome_nodo@nome_computer>`.
 A seguito è necessario implementare le seguenti funzioni al fine che soddisfino le specifiche del progetto.
 - addNode(TS, Node)
 - removeNode(TS node)
@@ -45,7 +45,7 @@ permette di cercare ne TS se una tupla esiste
 
 ## Pattern Macching
 Il pattern Macching deve presedere il carattere jolly identificato con l'atomo any
-Example: match([any,3,”pippo”], [1,3,”pippo”]) = true
+Example: `<match([any,3,”pippo”], [1,3,”pippo”]) = true>`
 
 ## Gestire il sincronismo telle tuple tra i nodi
 per rincronizzare i nodi raggiungibilo o meno ma che nell'ets lNode hanno una corrispondenza sono necessarie le seguenti funzioni
