@@ -25,11 +25,11 @@ Erlang permette di avviare un processo su una macchina in rete e tale processo s
 ## Gestione dei nodi.
 Il progetto prevedere l'uso della console da cui vi avvia un processo dandogli un nome, ogni istanza sarà un nodo con un nome univoco del tipo `nome_nodo@nome_computer`.
 A seguito è necessario implementare le seguenti funzioni al fine che soddisfino le specifiche del progetto.
-- #### `addNode(TS, Node)`
+- `addNode(TS, Node)`
 Implementazione tramite la funzione `node:addNode(TS, Node)`. dove prende i nome del `TS` ed il nome del nodo che verrà inserito nell'ets `lNode`. 
-- #### `removeNode(TS node)`
+- `removeNode(TS node)`
 Implementazione tramite la funzione `node:removeNode(TS, Node)` anche in questo caso la corrispondenza va ad eliminare la ricorrenza sull'ets `lNode`
-- #### `node(TS)`
+- `node(TS)`
 Implementazione tramite `node:nodes(TS)` che a seguito di un filtro `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` preleva tutti i nodi che hanno quella ricorrena
 - per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di singronizzazione 
 ##### `Gestire il sincronismo telle tuple tra i nodi)`
