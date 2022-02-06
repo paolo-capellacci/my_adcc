@@ -43,11 +43,10 @@ Implementazione tramite la funzione `node:removeNode(TS, Node)` anche in questo 
 Implementazione tramite `node:nodes(TS)` che a seguito di un filtro `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` preleva tutti i nodi che hanno quella ricorrena e con `lists:usort(Nodes)` elimina i dupplicati.
 ![alt text](./img/nodes_g.png)
 
-- per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di singronizzazione 
-##### `Gestire il sincronismo telle tuple tra i nodi)`
-
+- per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di sincronizzazione in base alla visibilità dei `TS` verso i nodi.
+- 
 ## Gestione delle Tuple
-In questo caso il progetto deve provvedere:
+Il progetto deve provvedere:
 - ### new(name)
 La funzione `esame:new(Name)` prende un nome ed istanzia un novo `TS` ed istanzia un ets con `ets:new(TS, [named_table, bag, public])`, nel caso esiste già un controlo evita la creazione.
 ![alt text](./img/new_g.png)
