@@ -21,3 +21,8 @@ test1() ->
   esame:look_up(ts2)
 
 .
+
+%node:addNode(ts1, node1@localhost).
+%node:addNode(ts1, node2@localhost).
+%node:addNode(ts2, node2@localhost).
+%node:addNode(ts2, node1@localhost).
