@@ -34,7 +34,7 @@ Implementazione tramite la funzione `node:addNode(TS, Node)`. dove prende i nome
 - `removeNode(TS node)`
 Implementazione tramite la funzione `node:removeNode(TS, Node)` anche in questo caso la corrispondenza va ad eliminare la ricorrenza sull'ets `lNode`
 - `node(TS)`
-Implementazione tramite `node:nodes(TS)` che a seguito di un filtro `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` preleva tutti i nodi che hanno quella ricorrena
+Implementazione tramite `node:nodes(TS)` che a seguito di un filtro `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` preleva tutti i nodi che hanno quella ricorrena e con `lists:usort(Nodes)` elimina i dupplicati.
 - per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di singronizzazione 
 ##### `Gestire il sincronismo telle tuple tra i nodi)`
 
