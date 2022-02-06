@@ -210,3 +210,7 @@ Nel caso il `TS` abbia più di una ricorrenza, dalla funzione `esame:rd(TS, Patt
 La stessa cosa avviene anche per la funzione `esame:in(TS, Pattern)` che per le rispattive `esame:rd(TS, Pattern, TimeOut)` e `esame:in(TS, Pattern, TimeOut)` 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_tuples.png" width="800">
 
+
+#### Performans
+Il test eseguito con la funzione esame:rd(TS, Pattern) fatto con 30, 300, 3000, 30000 e 300000 Tupples su un TS a dato esito pressoché invariato, le leggeri differenze di tempo sono sicuramente a seguito delle risorse che il macBook gli ha riservato.
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/tempo.png" width="800">
