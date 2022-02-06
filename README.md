@@ -69,7 +69,7 @@ La funzione `esame:in(TS, Pattern)` prende il nome del `TS` ed il `Pattern` conf
 ## Modalita di ricerca con Time Out
 - ### rd(TS, Pattern, TimeOut) 
 Questa funzione `esame:rd(TS, Pattern, TimeOut)` è simile alla `rd/2` tranne per il fatto che gli viene passato un valore aggiuntivo come argomento che continua a provare per un tempo `TimeOut` il pattern macching.
-![alt text](./img/er_p_g.png)
+![alt text](./img/rd_p_g.png)
 
 - ### in(TS, PAttern TimeOut) 
 Anche questa funzione `esame:in(TS, Pattern, TimeOut)` ha comportamento analogo della precedente tranne per il fatto che provvedea alla cancellazione della tupla ed a sincronnizare i nodi che hanno la visibilità anche per quel `TS`.
