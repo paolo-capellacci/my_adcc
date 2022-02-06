@@ -33,47 +33,65 @@ Il progetto prevedere l'uso della console da cui vi avvia un processo dandogli u
 A seguito è necessario implementare le seguenti funzioni al fine che soddisfino le specifiche del progetto.
 - `addNode(TS, Node)`
 Implementazione tramite la funzione `node:addNode(TS, Node)`. dove prende i nome del `TS` ed il nome del nodo che verrà inserito nell'ets `lNode`. 
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/addNode_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/addNode_g.png" width="600">
+</p>
 
 - `removeNode(TS node)`
 Implementazione tramite la funzione `node:removeNode(TS, Node)` anche in questo caso la corrispondenza va ad eliminare la ricorrenza sull'ets `lNode`
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/removeNode_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/removeNode_g.png" width="600">
+</p>
 
 - `nodes(TS)`
 Implementazione tramite `node:nodes(TS)` che a seguito di un filtro `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` preleva tutti i nodi che hanno quella ricorrena e con `lists:usort(Nodes)` elimina i dupplicati.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/nodes_g.png" width="600">
-
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/nodes_g.png" width="600">
+</P>
 - per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di sincronizzazione in base alla visibilità dei `TS` verso i nodi.
 - 
 ## Gestione delle Tuple
 Il progetto deve provvedere:
 - ### new(name)
 La funzione `esame:new(Name)` prende un nome ed istanzia un novo `TS` ed istanzia un ets con `ets:new(TS, [named_table, bag, public])`, nel caso esiste già un controlo evita la creazione.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new_g.png" width="600">
+</p>
 
 - ### out(TS, Tuple)
 La funzione `esame:out(TS, Tuple)` prende il nome del `TS` e la `Tupla` da inserire ,controlla se il `TS` esiste e fa l'inserimento, se l'inserimento ha esito positivo invoca la funzione per aggiornare la tupla anche sugli altri nodi che hanno visibilità
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/out_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/out_g.png" width="600">
+</p>
 
 - ### rd(TS, Pattern)
 La funzione `esame:rd(TS, Pattern)` prende il nome del `TS` ed il `Pattern` da conforontare, dato che è più semplice confrontare una lista, le singole tuple vengono trasformate in liste e passate alla funzione `db:match(Tupla, Pattern)`.
 Se ha esito positivo torna una lista delle tuple trovate, questa funzione non fa nessun aggiornamento sui nodi dato che non cammbia lo stato della memoria dei `TS`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_g.png" width="600">
+</p>
 
 
 - ### in(TS, Pattern)
 La funzione `esame:in(TS, Pattern)` prende il nome del `TS` ed il `Pattern` confronta se esiste una corrispondenza come fa `esame:rd(TS, PAttern)` ma nel caso che trova la corrispondenza invoca la funzione `ets:match_delete(TS, Value)` per provverere alla eliminazione della tupla, anche in questo caso viene invocata la funzione per suncronizzare i nodi che hanno quel `TS` per provvedere all'eliminazione nei `TS` degli altri nodi.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_g.png" width="600">
+
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_g.png" width="600">
+</p>
 
 
 ## Modalita di ricerca con Time Out
 - ### rd(TS, Pattern, TimeOut) 
 Questa funzione `esame:rd(TS, Pattern, TimeOut)` è simile alla `rd/2` tranne per il fatto che gli viene passato un valore aggiuntivo come argomento che continua a provare per un tempo `TimeOut` il pattern macching.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_p_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_p_g.png" width="600">
+</p>
 
 - ### in(TS, PAttern TimeOut) 
 Anche questa funzione `esame:in(TS, Pattern, TimeOut)` ha comportamento analogo della precedente tranne per il fatto che provvedea alla cancellazione della tupla ed a sincronnizare i nodi che hanno la visibilità anche per quel `TS`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_p_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_p_g.png" width="600">
+</p>
 
 ## Pattern Macching
 Il pattern Macching deve presedere il carattere jolly identificato con l'atomo any
@@ -122,7 +140,9 @@ La struttura dell'ets `lNode` è la seguente ed ha le seguente dicliarazione, `e
 Per rincronizzare i nodi raggiungibili o meno che nell'ets `lNode` hanno una corrispondenza sono necessarie le seguenti funzioni
 
 - `<node:nodes(TS)>` prende il nome di un TS e restituisce la lista di nodi che hanno corrispondenza nell'`lNode`, usando `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` al fine di avere  `[listNode, node1@localhost, ts1]`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/nodes_g.png" width="600">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/nodes_g.png" width="600">
+</p>
 
 - `node:listNodes()` non pende nessun argomento e restutuisce tutti i nodi che sono presenti nell'ets `lNode`, usando `ets:select(lNode,[{{'_','$2','_'},[],['$2']}])`
 
@@ -149,15 +169,20 @@ c(node).
 db:initdb().
 
 ```
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/init.png" width="800">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/init.png" width="800">
+</p>
 
 #### new(TS)
 
 Con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
 Quando si aggiunge un nuovo TS, in automatio si aggiunge una corrispondenza anche nell'ets lNode con la funzione addNode(TS, Node).
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
-
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
+</p>
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/populate.png" width="800">
+</p>
 dopo aver seguito i vari `TS` si possono popolare con una funzione dedicata
 
 ```
@@ -167,13 +192,16 @@ esame:populate(ts1)     % popola il Tuple Space ts1 con tuple numeriche
 esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche 
 
 ```
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
-
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
+</p>
 
 
 #### lookup(TS)
 con la funzione `esame:look_up(ts1)` si ha l'output nel terminale dell'elenco delle tuple nel `TS` `ts1`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/look_up.png" width="800">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/look_up.png" width="800">
+</p>
 
 #### addNode(TS, Node)
 aggiungendo le visibilità dei `TS` ai nodi
@@ -187,30 +215,45 @@ node:addNode(ts2, node2@localhost).
 node:addNode(ts1, node3@localhost).
 ```
 
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/node.png" width="800">
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts_node.png" width="800">
-
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/node.png" width="800">
+</p>
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts_node.png" width="800">
+</p>
 
 #### rd(TS, Pattern)
 `esame:rd(ts1, {5})`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_1.png" width="800">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_1.png" width="800">
+</p>
 
 `esame:rd(ts1, {93, any, any})`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_2.png" width="800">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_2.png" width="800">
+</p>
 
 `esame:rd(ts1, {93, any, 54})`.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_3.png" width="800">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_3.png" width="800">
+</p>
 
 #### in(TS, Pattern)
 `esame_in(ts1, {16, any, any})`.
 
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_1.png" width="800">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_1.png" width="800">
+</p>
 
 Nel caso il `TS` abbia più di una ricorrenza, dalla funzione `esame:rd(TS, Pattern)` torna la lista di tuple che fanno macching.
 La stessa cosa avviene anche per la funzione `esame:in(TS, Pattern)` che per le rispattive `esame:rd(TS, Pattern, TimeOut)` e `esame:in(TS, Pattern, TimeOut)` 
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_tuples.png" width="800">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_tuples.png" width="800">
+</p>
 
 
 #### Performans
 Il test eseguito con la funzione esame:rd(TS, Pattern) fatto con 30, 300, 3000, 30000 e 300000 Tupples su un TS a dato esito pressoché invariato, le leggeri differenze di tempo sono sicuramente a seguito delle risorse che il macBook gli ha riservato.
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/tempo.png" width="500">
+<p align="center">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/tempo.png" width="500">
+</p>
