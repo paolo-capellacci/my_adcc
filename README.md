@@ -150,7 +150,13 @@ db:initdb().
 ```
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/init.png" width="800">
 
-a seguito si possono inserire i vari `TS` e popolarli con una funzione dedicata
+#### new(TS)
+
+Con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
+Quando si aggiunge un nuovo TS, in automatio si aggiunge una corrispondenza anche nell'ets lNode con la funzione addNode(TS, Node).
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
+
+dopo aver seguito i vari `TS` si possono popolare con una funzione dedicata
 
 ```
 esame:new(ts1)          % aggiunge un Tuple Space con nome ts1
@@ -159,14 +165,9 @@ esame:populate(ts1)     % popola il Tuple Space ts1 con tuple numeriche
 esame:populate(ts2)     % popola il Tuple Space ts1 con tuple numeriche 
 
 ```
-
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts1.png" width="800">
 
-#### new(TS)
 
-Con la funzione `esame:new(ts1)` aggiunge un nuovo `TS` vuoto.
-Quando si aggiunge un nuovo TS, in automatio si aggiunge una corrispondenza anche nell'ets lNode con la funzione addNode(TS, Node).
-<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/new.png" width="800">
 
 #### lookup(TS)
 con la funzione `esame:look_up(ts1)` si ha l'output nel terminale dell'elenco delle tuple nel `TS` `ts1`.
