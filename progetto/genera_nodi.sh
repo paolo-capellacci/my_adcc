@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# run four terminal with the erlang program end the name node erlang
 shopt -s nocasematch
 read -p " Execute script? (y/n): " response
 if [[ $response == y ]]; then
@@ -12,8 +13,8 @@ if [[ $response == y ]]; then
     printf " Open %s Terminal node2@localhost\\n"
     osascript -e 'tell application "Terminal" to do script "erl -sname node2@localhost"' >/dev/null
     printf " Open %s Terminal node3@localhost\\n"
-    osascript -e 'tell application "Terminal" to do script "erl -sname node3localhost"' >/dev/null
+    osascript -e 'tell application "Terminal" to do script "erl -sname node3@localhost"' >/dev/null
     printf " Open %s Terminal node4@localhost\\n"
-    osascript -e 'tell application "Terminal" to do script "erl -sname node4localhost"' >/dev/null
+    osascript -e 'tell application "Terminal" to do script "erl -sname node4@localhost"' >/dev/null
 fi
 shopt -u nocasematch
