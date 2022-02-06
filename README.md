@@ -192,19 +192,21 @@ node:addNode(ts1, node3@localhost).
 
 
 #### rd(TS, Pattern)
-esame:rd(ts1, {5}).
+`esame:rd(ts1, {5})`.
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_1.png" width="800">
 
-esame:rd(ts1, {93, any, any}).
+`esame:rd(ts1, {93, any, any})`.
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_2.png" width="800">
 
-esame:rd(ts1, {93, any, 54}).
+`esame:rd(ts1, {93, any, 54})`.
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_3.png" width="800">
 
 #### in(TS, Pattern)
-esame_in(ts1, {16, any, any}).
+`esame_in(ts1, {16, any, any})`.
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/in_1.png" width="800">
 
-
+Nel caso il `TS` abbia più di una ricorrenza, dalla funzione `esame:rd(TS, Pattern)` torna la lista di tuple che fanno macching.
+La stessa cosa avviene anche per la funzione `esame:in(TS, Pattern)` che per le rispattive `esame:rd(TS, Pattern, TimeOut)` e `esame:in(TS, Pattern, TimeOut)` 
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/rd_tuples.png" width="800">
 
