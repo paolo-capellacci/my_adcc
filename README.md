@@ -188,6 +188,7 @@ node:addNode(ts1, node3@localhost).
 ```
 
 <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/node.png" width="800">
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/ts_node.png" width="800">
 
 
 #### rd(TS, Pattern)
