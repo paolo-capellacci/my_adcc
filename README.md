@@ -41,7 +41,7 @@ Implementazione tramite la funzione `node:removeNode(TS, Node)` anche in questo 
 
 - `nodes(TS)`
 Implementazione tramite `node:nodes(TS)` che a seguito di un filtro `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` preleva tutti i nodi che hanno quella ricorrena e con `lists:usort(Nodes)` elimina i dupplicati.
-![alt text](./img/nodes.png)
+![alt text](./img/nodes_g.png)
 
 - per funzionare correttamente è necessario implementare una serie di funzioni che risolvono le problematiche di singronizzazione 
 ##### `Gestire il sincronismo telle tuple tra i nodi)`
