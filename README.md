@@ -122,7 +122,7 @@ La struttura dell'ets `lNode` è la seguente ed ha le seguente dicliarazione, `e
 Per rincronizzare i nodi raggiungibili o meno che nell'ets `lNode` hanno una corrispondenza sono necessarie le seguenti funzioni
 
 - `<node:nodes(TS)>` prende il nome di un TS e restituisce la lista di nodi che hanno corrispondenza nell'`lNode`, usando `ets:select(lNode, [{{'$1','$2', '$3'},[{'=:=','$3',TS}],['$2']}])` al fine di avere  `[listNode, node1@localhost, ts1]`.
-![alt text](./img/nodes_g.png)
+<img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/nodes_g.png" width="600">
 
 - `node:listNodes()` non pende nessun argomento e restutuisce tutti i nodi che sono presenti nell'ets `lNode`, usando `ets:select(lNode,[{{'_','$2','_'},[],['$2']}])`
 
