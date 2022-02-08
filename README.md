@@ -19,14 +19,14 @@ L'implementazione dell'algoritmo deve soddisfare le seguenti specifiche.
 
 
 ## Premessa
-Erlang permette di avviare un processo su una macchina in rete e tale processo si identifica come nodo e tale nodo può comunicare con altri nodi dello stesso computer, ma anche con nodi su altri computer e / o reti diverse. Quindi una volta definito un nome al processo, Erlang provvederà a identificarlo all'interno del computer e della rete.  
+Erlang permette di avviare un processo su una macchina in rete, tale processo si identifica come nodo, tale nodo può comunicare con altri nodi dello stesso computer, ma anche con nodi su altri computer e / o reti diverse. Quindi una volta definito un nome al processo, Erlang provvederà a identificarlo all'interno del computer e della rete.  
 
 Per implementare questo progetto si è fatto uso di un file che contiene le funzione per l'interfaccia utente `esame.erl`, un file che contiene le funzioni per l'elaboorazione delle tuple inserite in vari ets `db.erl`. Un file per la gestione dei nodi `node.erl`.
 Per la gestione dei nodi si istanzia all'avvio un `ets` con nome `lNode` dedicato a tenere traccia della visibilità dei `TS` per i vari nodi.
 
 I test sono stati fatti con nodi su un solo compueter locale per la maggior parte dello sviluppo, ma sono stati fatti test con nodi su computer della stessa rete in contemporanea su computer di reti diverse, dato che per erlang non fa alcuna differenza.
 
-Le tuple vengono salvate su un database ets, si è prefrito usare il solo db su ram, dato che se il sistema funziona su un sistema distribuito avere permanenza diventa ridondante. Comunque per averlo anche su disco è sufficente ablitare la scrittura su disco con dets..... e all'avvio ricaricare i TS, ma servirebbe tenere traccia dei nomi dei TS creati e da chi, il che esula dalla specifiche, anche se in un primo momento era stato inserito con.  
+Le tuple vengono salvate su un database ets, si è prefrito usare il solo database su ram, dato che se il sistema funziona su un sistema distribuito avere permanenza diventa ridondante. Comunque per averlo anche su disco è sufficente ablitare la scrittura su disco con dets..... e all'avvio ricaricare i TS, ma servirebbe tenere traccia dei nomi dei TS creati e da chi, il che esula dalla specifiche, anche se in un primo momento era stato inserito con.  
 
 per avere un nome del TS con la lettera finale D.
 ```
