@@ -26,7 +26,7 @@ Per la gestione dei nodi si istanzia all'avvio un `ets` con nome `lNode` dedicat
 
 I test sono stati fatti con nodi su un solo compueter locale per la maggior parte dello sviluppo, ma sono stati fatti test con nodi su computer della stessa rete in contemporanea su computer di reti diverse, dato che per erlang non fa alcuna differenza.
 
-Le tuple vengono salvate su un database ets, si è prefrito usare il solo database su ram, dato che se il sistema funziona su un sistema distribuito avere permanenza diventa ridondante. Comunque per averlo anche su disco è sufficente ablitare la scrittura su disco con dets..... e all'avvio ricaricare i TS, ma servirebbe tenere traccia dei nomi dei TS creati e da chi, il che esula dalla specifiche, anche se in un primo momento era stato inserito con.  
+Le tuple vengono salvate su un database ets, si è prefrito usare il solo database su ram, dato che se il sistema funziona su un sistema distribuito avere permanenza diventa ridondante. Comunque per averlo anche su disco è sufficente ablitare la scrittura su disco con una funzione di creazione, inserimento e cancellazione. All'avvio si dovrebbe ricaricare i TS, ma servirebbe tenere traccia dei nomi dei TS creati e da chi, il che esula dalla specifiche, anche se in un primo momento era stato inserito con.  
 
 per avere un nome del TS con la lettera finale D.
 ```
