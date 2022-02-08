@@ -338,7 +338,7 @@ Alcune immagini dei testi con nodi su macchine diverse e su diverse reti.
 - prima che scade il tempo del timeout, `node1@melazzo` aggiunge nuovamente il la tupla `{22}` con `esame:out(ts1, {22})`.
 - il valore diventa disponibile per tutti i nodi che hanno visibilità di `ts1` e `node3@iot` lo trova e lo cancella, gli altri nodi si aggiornano di conseguenza.
 - <p align="center">
-    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/Schermata03.png" width="1000">
+    <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/Schermata05.png" width="1000">
 </p>
 
 
