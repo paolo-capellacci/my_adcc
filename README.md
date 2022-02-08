@@ -26,6 +26,44 @@ Per la gestione dei nodi si istanzia all'avvio un `ets` con nome `lNode` dedicat
 
 I test sono stati fatti con nodi su un solo compueter locale per la maggior parte dello sviluppo, ma sono stati fatti test con nodi su computer della stessa rete in contemporanea su computer di reti diverse, dato che per erlang non fa alcuna differenza.
 
+Le tuple vengono salvate su un database ets, si è prefrito usare il solo db su ram, dato che se il sistema funziona su un sistema distribuito avere permanenza diventa ridondante. Comunque per averlo anche su disco è sufficente ablitare la scrittura su disco con dets..... e all'avvio ricaricare i TS, ma servirebbe tenere traccia dei nomi dei TS creati e da chi, il che esula dalla specifiche, anche se in un primo momento era stato inserito con.  
+
+per avere un nome del TS con la lettera finale D.
+```
+generateDisk(TS) ->
+    TS_S = atom_to_list(TS),
+    TS_S_D = string:concat(TS_S, "D"),
+    TSD = list_to_atom(TS_S_D),
+    io:format("TS: ~p TSR: ~p ~n", [TS, TSD]),
+    TSD
+    %Pid ! {TRD}
+.
+```
+
+```
+per riprestinare i dati dall'ETS al DETS
+{restore_backup, TS, Pid} ->
+    %TSR = generateRam(TS),
+    TSD = generateDisk(TS),
+
+    case dets:to_ets(TSD, TS) of
+        {error} -> 
+            io:format("memory:restore_backup -> error ~n", []),
+            Pid ! {error};
+        _ ->io:format("memory:restore_backup -> ok ~n", []),
+            Pid ! {ok}
+
+    end,
+db();
+```
+ 
+ ed aggiungendo a 
+ `ets:insert(TS,{Id})`
+ anche
+ `dets:insert(TSD, {Id}) `
+ ed il relativo delete per le cancellazioni.
+            
+
 Iniziamente il progetto è stato iniziato in coppia con Paride Dominici, poi per motivi di difficoltà nel trovare il tempo di comunicare per impegni di lavoro, studio e famiglia, lo sviluppo e seguito un maniera distaccata, anche se la struttura di base ed il Pattern Macching è opera di Paride poi alcuni approcci hanno seguito diverse preferenze di implementazione, quindi si è preferito presentarli separati, ma soprattutto per mettermi alla prova e per non infrangere l'ultima regola "The golden rule Have fun!".
 
 ## Gestione dei nodi.
@@ -183,7 +221,7 @@ paolo@iot:~$ erl
 Eshell V9.2  (abort with ^G)
 ```
 
-`erl -sname node1@lozzo -kernel inet_dist_listen_min 42000 inet_dist_listen_max 43000 -setcookie mezzina`
+`erl -sname node1@melozzo -kernel inet_dist_listen_min 42000 inet_dist_listen_max 43000 -setcookie mezzina`
 `erl -sname node2@miro -ke inet_dist_listen_min 42000 inet_dist_listen_max 43000 -setcookie mezzina`
 `erl -sname node3@iot -kernel inet_dist_listemin 42000 inet_dist_listen_max 43000 -setcookie mezzina`
 
@@ -288,8 +326,8 @@ Il test eseguito con la funzione esame:rd(TS, Pattern) fatto con 30, 300, 3000, 
 
 
 Alcune immagini dei testi con nodi su macchine diverse e su diverse reti.
-- `nodo1@melazzo` crea un `TS` con nome `ts1` `esame:new(ts1`) e lo popopla con dei valori random `esame:populate(ts1)`.
-- `node1@mellazzo` condivide il `TS` con il `nodo2@miro` `node:addNode(ts1, node2@miro)`e con `nodo3@iot` `node:addNode(ts1, node3@iot)`, al fine che tutti abbiano una copia.
+- `nodo1@melozzo` crea un `TS` con nome `ts1` `esame:new(ts1`) e lo popopla con dei valori random `esame:populate(ts1)`.
+- `node1@mellozzo` condivide il `TS` con il `nodo2@miro` `node:addNode(ts1, node2@miro)`e con `nodo3@iot` `node:addNode(ts1, node3@iot)`, al fine che tutti abbiano una copia.
 - `node3@iot` cerca la tupla `{22}` con la funzione `esame:rd(ts1, {22})`, e lo trova
 - `node3@iot` cancella tale tupla con la funzione `esame:in(ts1, {22})`, che lo trova e lo cancella, aggiorna gli altri nodi della modifica.
 <p align="center">
