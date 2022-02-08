@@ -288,17 +288,17 @@ Il test eseguito con la funzione esame:rd(TS, Pattern) fatto con 30, 300, 3000, 
 
 
 Alcune immagini dei testi con nodi su macchine diverse e su diverse reti.
-- nodo1@melazzo crea un TS con nome ts1 esame:new(ts1) e lo popopla con dei valori random esame:populate(ts1).
-- node1@mellazzo condivide il TS con il nodo2@miro node:addNode(ts1, node2@miro)e con nodo3@iot node:addNode(ts1, node3@iot), al fine che tutti abbiano una copia.
-- node3@iot cerca la tupla {22} con la funzione esame:rd(ts1, {22}), e lo trova
-- node3@iot cancella tale tupla con la funzione esame:in(ts1, {22}), che lo trova e lo cancella, aggiorna gli altri nodi della modifica.
+- `nodo1@melazzo` crea un `TS` con nome `ts1` `esame:new(ts1`) e lo popopla con dei valori random `esame:populate(ts1)`.
+- `node1@mellazzo` condivide il `TS` con il `nodo2@miro` `node:addNode(ts1, node2@miro)`e con `nodo3@iot` `node:addNode(ts1, node3@iot)`, al fine che tutti abbiano una copia.
+- `node3@iot` cerca la tupla `{22}` con la funzione `esame:rd(ts1, {22})`, e lo trova
+- `node3@iot` cancella tale tupla con la funzione `esame:in(ts1, {22})`, che lo trova e lo cancella, aggiorna gli altri nodi della modifica.
 <p align="center">
     <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/Schermata01.png" width="1000">
 </p>
 
-- node3@iot lancia la funzione cancella con il timeout, esame:in(ts1, {22}) che inizialmente non lo trova
-- prima che scade il tempo del timeout, node1@melazzo aggiunge nuovamente il la tupla {22} con esame:out(ts1, {22}).
-- il valore diventa disponibile per tutti i nodi che hanno visibilità di ts1 e node2@iot lo trova e lo cancella, gli altri nodi si aggiornano di conseguenza.
+- `node3@iot` lancia la funzione cancella con il timeout, `esame:in(ts1, {22}, 30000)` che inizialmente non lo trova
+- prima che scade il tempo del timeout, `node1@melazzo` aggiunge nuovamente il la tupla `{22}` con `esame:out(ts1, {22})`.
+- il valore diventa disponibile per tutti i nodi che hanno visibilità di `ts1` e `node3@iot` lo trova e lo cancella, gli altri nodi si aggiornano di conseguenza.
 - <p align="center">
     <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/Schermata03.png" width="1000">
 </p>
