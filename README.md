@@ -39,9 +39,9 @@ generateDisk(TS) ->
     %Pid ! {TRD}
 .
 ```
+per riprestinare i dati dall'ETS al DETS
 
 ```
-per riprestinare i dati dall'ETS al DETS
 {restore_backup, TS, Pid} ->
     %TSR = generateRam(TS),
     TSD = generateDisk(TS),
