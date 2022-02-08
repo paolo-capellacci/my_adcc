@@ -158,22 +158,23 @@ In caso di cancellazione di una tupla su un `TS` è stata aggiunta la funzione `
 
 
 ## Test
-Al fine di eseguire i test è necessari condiderare che è necessario avviare erlang definendo il nome del nodo con `erl -snode node1@localhost`.
+Al fine di eseguire i test è necessari considerare che è necessario avviare erlang definendo il nome del nodo con `erl -snode node1@localhost`.
 Una volta avviati i nodi necessari al test è necessario avviare la compilazione dei file erlang ed avviare il processo.
 
-#### start
+#### avvio
 Nel caso si utilizzano nodi sullo stesso computer sono sufficenti i seguenti comandi.
 `erl -sname node1@localhost`
 `erl -sname node2@localhost`
 `erl -sname node3@localhost`
 
-nel caso di nodi su computer differenti è necessario assicurarsi che il computer sia raggiungibile con il semplice ping, ed è necessario identificare il nome del computer ed abilitare il traffico in entrata per il range di porte si vuole dedicare alle comunicazini Erlang.
-Quindi per il compuer remoto, nel casi sia una macchina linux è necessario inserire le seguenti regole nel firewall 
+nel caso di nodi su computer differenti è necessario assicurarsi che i computer siano raggiungibili con il semplice `ping`, è necessario identificare il nome del computer ed è necessario abilitare il traffico in entrata per il range di porte si vuole dedicare alle comunicazini Erlang sia nei firewall delle macchine che in eventuali firewall di rete.
+Quindi per il compuer remoto, nel casi sia una macchina linux ed il firewall lo si gestisce con `iptables` è necessario inserire le seguenti regole. 
 
-`sudo iptables -A INPUT -p tcp --dport 42000:43000 -j ACCEPT` definisce il range di porte che utiizzeranno i nodi
-`sudo iptables -A INPUT -p tcp --dport 4369 -j ACCEPT` definisce la porta di comunicazione per la prima comunicazione Erlang
+`sudo iptables -A INPUT -p tcp --dport 42000:43000 -j ACCEPT` per definire il range di porte che utizzeranno i nodi
+`sudo iptables -A INPUT -p tcp --dport 4369 -j ACCEPT` per definire la porta di comunicazione init di Erlang
 
-nei nodi è necessario specificare il range di porte ed il token di sicurezza per le comunicazioni. I test del caso sono stati fatti nel laboratorio informatico dell'università dato che i computer erano equipaggiati con la stessa versione Erlang della macchina remota. 
+nei nodi oltre a specificare il range di porte serve definire anche un token di sicurezza per le comunicazioni. 
+I test del caso sono stati fatti nel laboratorio informatico dell'università ed una macchina remota dato che tali computer erano equipaggiati con la stessa versione Erlang. 
 
 ```
 paolo@iot:~$ erl
@@ -283,3 +284,9 @@ Il test eseguito con la funzione esame:rd(TS, Pattern) fatto con 30, 300, 3000, 
 <p align="center">
     <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/tempo.png" width="500">
 </p>
+
+
+
+Alcune immagini dei testi con nodi su macchine diverse e su diverse reti.
+
+
