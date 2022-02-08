@@ -24,7 +24,7 @@ Erlang permette di avviare un processo su una macchina in rete e tale processo s
 Per implementare questo progetto si è fatto uso di un file che contiene le funzione per l'interfaccia utente `esame.erl`, un file che contiene le funzioni per l'elaboorazione delle tuple inserite in vari ets `db.erl`. Un file per la gestione dei nodi `node.erl`.
 Per la gestione dei nodi si istanzia all'avvio un `ets` con nome `lNode` dedicato a tenere traccia della visibilità dei `TS` per i vari nodi.
 
-I test sono stati fatti su un solo compueter, quindi i nodi sono tutti locali nella stessa rete, ma è stato solo un fatto di comodità dato che per Erlang non ci sarebbe stata nessuna differenza.
+I test sono stati fatti con nodi su un solo compueter locale per la maggior parte dello sviluppo, ma sono stati fatti test con nodi su computer della stessa rete in contemporanea su computer di reti diverse, dato che per erlang non fa alcuna differenza.
 
 Iniziamente il progetto è stato iniziato in coppia con Paride Dominici, poi per motivi di difficoltà nel trovare il tempo di comunicare per impegni di lavoro, studio e famiglia, lo sviluppo e seguito un maniera distaccata, anche se la struttura di base ed il Pattern Macching è opera di Paride poi alcuni approcci hanno seguito diverse preferenze di implementazione, quindi si è preferito presentarli separati, ma soprattutto per mettermi alla prova e per non infrangere l'ultima regola "The golden rule Have fun!".
 
@@ -160,6 +160,32 @@ In caso di cancellazione di una tupla su un `TS` è stata aggiunta la funzione `
 ## Test
 Al fine di eseguire i test è necessari condiderare che è necessario avviare erlang definendo il nome del nodo con `erl -snode node1@localhost`.
 Una volta avviati i nodi necessari al test è necessario avviare la compilazione dei file erlang ed avviare il processo.
+
+#### start
+Nel caso si utilizzano nodi sullo stesso computer sono sufficenti i seguenti comandi.
+`erl -sname node1@localhost`
+`erl -sname node2@localhost`
+`erl -sname node3@localhost`
+
+nel caso di nodi su computer differenti è necessario assicurarsi che il computer sia raggiungibile con il semplice ping, ed è necessario identificare il nome del computer ed abilitare il traffico in entrata per il range di porte si vuole dedicare alle comunicazini Erlang.
+Quindi per il compuer remoto, nel casi sia una macchina linux è necessario inserire le seguenti regole nel firewall 
+
+`sudo iptables -A INPUT -p tcp --dport 42000:43000 -j ACCEPT` definisce il range di porte che utiizzeranno i nodi
+`sudo iptables -A INPUT -p tcp --dport 4369 -j ACCEPT` definisce la porta di comunicazione per la prima comunicazione Erlang
+
+nei nodi è necessario specificare il range di porte ed il token di sicurezza per le comunicazioni. I test del caso sono stati fatti nel laboratorio informatico dell'università dato che i computer erano equipaggiati con la stessa versione Erlang della macchina remota. 
+
+```
+paolo@iot:~$ erl
+(Erlang/OTP 20 [erts-9.2] [source] [64-bit] [smp:1:1] [ds:1:1:10] [async-threads:10] [kernel-poll:false]
+
+Eshell V9.2  (abort with ^G)
+```
+
+`erl -sname node1@lozzo -kernel inet_dist_listen_min 42000 inet_dist_listen_max 43000 -setcookie mezzina`
+`erl -sname node2@miro -ke inet_dist_listen_min 42000 inet_dist_listen_max 43000 -setcookie mezzina`
+`erl -sname node3@iot -kernel inet_dist_listemin 42000 inet_dist_listen_max 43000 -setcookie mezzina`
+
 
 #### init
 ```
