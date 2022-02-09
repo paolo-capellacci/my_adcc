@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# run four terminal with the erlang program end the name node erlang
+# run four terminal with the erlang program end the name node erlang with mac osx
 shopt -s nocasematch
 read -p " Execute script? (y/n): " response
 if [[ $response == y ]]; then
