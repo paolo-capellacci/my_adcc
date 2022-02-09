@@ -164,25 +164,6 @@ db() ->
 
             db();
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% lTuple %%%%%%%%%%%%%%%
-        %{newListTupla, Tupla, Pid } -> {new, TS, Pid}
-
-	  %   {addListTuple, Tupla, Pid} ->
-	    
-	  %   	case ets:info(lTuple) of
-		 %    	undefined ->
-		 %    		io:format("db:addListTuple -> the ets lTuple do not exist ~n",[]),
-		 %    		Pid ! {error};
-		 %    	_ ->
-			%         case ets:insert(lTuple, #listTuple{tupla=Tupla}) of
-			%             true ->
-			%                 io:format("db:addListTuple: ~p ~n", [Tupla]),
-			%                 Pid ! {ok, addListTuple};
-			%             _ ->
-			%                 Pid ! {error}
-			%         end
-			% end,
-
-	  %   db();
 
 	    {getListTuples, Node, Pid} ->
 	    	io:format("db:getListTuples  ~n"),
@@ -204,7 +185,6 @@ db() ->
 	    %%%%%%%%%%%%%%%%%%%%%%%%%%%% tuple %%%%%%%%%%%%%%%%%%%%%%%%%
 	    {new, TS, Pid} ->
             % genera un atomo per la tupla ets
-            %TSR = generateRam(TS),
             %TSD = generateDisk(TS),
 
             %io:format("db:new now I try to create a new table: ~p ,Pid: ~p ~n", [TS, Pid]),
@@ -245,7 +225,6 @@ db() ->
             db();
 
         {populate, TS, Pid} ->
-            %TSR = generateRam(TS),
             %TSD = generateDisk(TS),
 
             % controllo che lo TS esiste
@@ -310,7 +289,7 @@ db() ->
 
                     case ets:insert(TS, Tupla) of
                         true ->
-                            %io:format("Table: ~p, Tupla: ~p ~n", [TS, Tupla]),
+                            io:format("Table: ~p, Tupla: ~p ~n", [TS, Tupla]),
                             %%%%%%%%%%%%%%%%%%%%%%node:ceckNodes(),
                             Pid ! {ok, out};
                         _ ->
