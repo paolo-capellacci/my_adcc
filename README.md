@@ -64,7 +64,7 @@ db();
  ed il relativo delete per le cancellazioni.
             
 
-Iniziamente il progetto è stato iniziato in coppia con Paride Dominici, ma poi impegni di lavoro, studio e famiglia, hanno reso difficile trovare il tempo di comunicare quindi si è preferito proseguire lo sviluppo in maniera separata. La struttura di base ed il Pattern Matching è opera di Paride, ma per alcuni approcci si sono seguite diverse preferenze di implementazione, quindi si è preferito presentarli separati. Ma soprattutto per metterci ugualmente alla prova e non infrangere l'ultima regola "The golden rule: Have fun!".
+Iniziamente il progetto è stato iniziato in coppia con Paride Dominici, ma poi impegni di lavoro, studio e famiglia, hanno reso difficile trovare il tempo di comunicare quindi si è preferito proseguire lo sviluppo in maniera separata, per poi unire entrambe le risorse e consegnare un progetto unico, senza infrangere l'ultima regola "The golden rule: Have fun!".
 
 ## Gestione dei nodi.
 Il progetto prevedere l'uso della console, da cui si avvia un processo dandogli un nome. Ogni istanza sarà un nodo con un nome univoco del tipo `nome_nodo@nome_computer`.
