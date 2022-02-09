@@ -3,20 +3,6 @@
 -export([new/1, look_up/1, populate/1, out/2, rd/2, rd/3, in/2, in/3]).
 
 
-% Puts the tuple Tuple in the TS
-% addListTuple(Tuple) ->
-%     memactor!{addListTuple, Tuple, self()},
-%     receive
-%         {ok, addListTuple} -> 
-%         	io:format("esame:out Inserito ~n"),
-%             node:ceckDataTS(Tuple),
-%         	{ok, addListTuple};
-
-%         _ -> 
-%         	{error, addListTuple}
-%     end
-% .
-
 getListTuples(Node) ->
 	memactor!{getListTuples, Node, self()},
 	receive
