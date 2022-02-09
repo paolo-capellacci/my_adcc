@@ -87,9 +87,11 @@ Implementazione tramite `node:nodes(TS)`, che a seguito di un filtro `ets:select
     <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/nodes_g.png" width="600">
 </P>
 - perché funzioni correttamente, è necessario implementare una serie di funzioni che risolvono le problematiche di sincronizzazione in base alla visibilità dei `TS` verso i nodi.
-- 
+
+
 ## Gestione delle Tuple
 Il progetto deve provvedere:
+
 - ### new(name)
 La funzione `esame:new(Name)` prende un nome ed istanzia un nuovo `TS` un ets con `ets:new(TS, [named_table, bag, public])`, nel caso esiste già un controllo evita la creazione.
 <p align="center">
