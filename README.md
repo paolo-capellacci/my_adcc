@@ -336,8 +336,10 @@ Alcune immagini dei test con nodi su macchine diverse e su diverse reti.
 - `node3@iot` lancia la funzione cancella con il timeout, `esame:in(ts1, {22}, 30000)` che inizialmente non lo trova.
 - prima che scade il tempo del timeout, `node1@melazzo` aggiunge nuovamente la tupla `{22}` con `esame:out(ts1, {22})`.
 - la tupla diventa disponibile per tutti i nodi che hanno visibilità di `ts1` e `node3@iot` la trova e la cancella, gli altri nodi si aggiornano di conseguenza.
-- <p align="center">
+<p align="center">
     <img src="https://github.com/paolo-capellacci/my_adcc/blob/main/img/Schermata05.png" width="1000">
 </p>
 
-
+## ringraziamenti
+- Ringrazio Paride per avermi invitato a fare coppia con lui in questo progetto e per lo scambio di vedute iniziali del progetto, purtroppo per diversi imprevisti non è stato possibile terminarlo insieme.
+- Ringrazio in particolar modo Lorenzo Sorace, exProf del mio percorso di studi che in caso di chiarimenti si è mostrato sempre disponibile.
