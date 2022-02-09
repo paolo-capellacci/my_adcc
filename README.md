@@ -343,5 +343,5 @@ Alcune immagini dei test con nodi su macchine diverse e su diverse reti.
 </p>
 
 ## ringraziamenti
-- Ringrazio Paride per avermi invitato a fare coppia con lui in questo progetto e per lo scambio di vedute iniziali del progetto, purtroppo per diversi imprevisti non è stato possibile terminarlo insieme.
+- Ringrazio Paride come collega di studio per l'aiuto e la disponibilità
 - Ringrazio in particolar modo Lorenzo Sorace, exProf del mio percorso di studi che in caso di chiarimenti si è mostrato sempre disponibile.
