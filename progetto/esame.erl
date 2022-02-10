@@ -101,11 +101,11 @@ rd(TS, Pattern, TimeOut) ->
     memactor ! {rd, TS, Pattern, self(), TimeOut},
     receive
         {ok, found, Valore} ->
-            io:format("*** esame:rd: Valore trovato: ~p ***\n", [Valore]);
-        {error, not_found} -> 
-            io:format("*** esame rd match non trovato ***~n", []);
-        _ ->
-            io:format("*** esame rd error ***~n", [])
+            io:format("*** esame:rd: Valore trovato: ~p ***\n", [Valore]),
+            Valore
+        after TimeOut ->
+            io:format("*** esame rd match non trovato TimeOut ***~n", []),
+            {error, not_found}
     end   
 .
 
